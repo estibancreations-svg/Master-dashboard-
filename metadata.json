@@ -1,0 +1,8 @@
+{
+  "name": "EstibanCreations",
+  "description": "Unified console for EstibanCreations (formerly AABOS + VisionWeaver) hosting the 14 operational tabs: Strategic Notepad Dashboard, AI Mastery, Agent Hub, Leads, Content Engine, and full CRM/Revenue/Settings integrations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
