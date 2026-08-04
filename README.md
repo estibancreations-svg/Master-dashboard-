@@ -8,10 +8,19 @@ This contains everything you need to run your app locally.
 
 View your app in AI Studio: https://ai.studio/apps/3128d6d5-5b6e-4ea5-aab9-f97819e60d0b
 
+## Architecture Authority
+
+This system is governed by the Master Systems Buildout schema:
+
+- Schema ID: `MSB-SCHEMA-001`
+- Local reference: [`docs/architecture/SYSTEM-BUILD-SCHEMA-REFERENCE.md`](docs/architecture/SYSTEM-BUILD-SCHEMA-REFERENCE.md)
+- Canonical standard: `estibancreations-svg/Master-System-Buildout/01-ARCHITECTURE/System-Build-Schema/SYSTEM-BUILD-SCHEMA-STANDARD-v1.0.md`
+
+Agents and developers must retrieve the canonical standard before creating or revising system specifications.
+
 ## Run Locally
 
 **Prerequisites:**  Node.js
-
 
 1. Install dependencies:
    `npm install`
