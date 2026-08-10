@@ -28,7 +28,7 @@ The canonical VisionWeaver product is a connected production console backed by a
 
 ## Security and QC closure
 
-- Replaced public orchestrator execution with a constant-time custom cron-secret boundary stored in Vault.
+- Replaced public orchestrator execution with a SHA-256 validated cron-secret boundary backed by Vault; orchestrator v7 returned HTTP 200 in the authenticated production probe.
 - Removed provider-secret status detail from the health response.
 - Added user ownership and CEO/Architect override policies to production jobs.
 - Added review decisions, integration receipts, scene QC, prompt versions and provenance.
