@@ -1,29 +1,31 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# VisionWeaver Command v6.0
 
-# Run and deploy your AI Studio app
+VisionWeaver is the governed creative-media production system for approved concept intake, AI scene planning, continuity-safe prompt generation, provider routing, resumable rendering, human QC, packaging, and audit-ready handoff.
 
-This contains everything you need to run your app locally.
+## Production architecture
 
-View your app in AI Studio: https://ai.studio/apps/3128d6d5-5b6e-4ea5-aab9-f97819e60d0b
+- React command console with Supabase passwordless authentication and realtime updates.
+- Supabase Postgres is the production system of record.
+- `visionweaver-orchestrator` advances one durable stage per minute and resumes after failures.
+- Anthropic handles structured planning; Runway handles server-side video generation.
+- Google Drive is the source/archive layer; GitHub is the code and governance authority.
+- Every production is owner-isolated. Review gates, prompt versions, provenance and provider receipts are first-class records.
 
-## Architecture Authority
+## Run
 
-This system is governed by the Master Systems Buildout schema:
+```bash
+cp .env.example .env.local
+npm install
+npm run dev
+```
 
-- Schema ID: `MSB-SCHEMA-001`
-- Local reference: [`docs/architecture/SYSTEM-BUILD-SCHEMA-REFERENCE.md`](docs/architecture/SYSTEM-BUILD-SCHEMA-REFERENCE.md)
-- Canonical standard: `estibancreations-svg/Master-System-Buildout/01-ARCHITECTURE/System-Build-Schema/SYSTEM-BUILD-SCHEMA-STANDARD-v1.0.md`
+Only the Supabase URL and anon key belong in the browser environment. Provider and cron secrets remain in Supabase Vault.
 
-Agents and developers must retrieve the canonical standard before creating or revising system specifications.
+## Quality gates
 
-## Run Locally
+```bash
+npm run lint
+npm run build
+```
 
-**Prerequisites:**  Node.js
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+See [the production run record](docs/run-records/2026-08-10-visionweaver-production-release.md) for reconciliation, connections, security controls and source lineage.
