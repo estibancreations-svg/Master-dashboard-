@@ -1,0 +1,15 @@
+{
+  "repository": "estibancreations-svg/Master-dashboard-",
+  "scope": "repository integrity plus applicable build or offline production tests",
+  "required_files": [
+    "README.md",
+    "package.json",
+    "src/main.tsx"
+  ],
+  "jsonc_files": [
+    "tsconfig.json",
+    "tsconfig.app.json",
+    "tsconfig.node.json",
+    "deno.json"
+  ]
+}
