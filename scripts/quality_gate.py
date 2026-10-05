@@ -32,7 +32,23 @@ def main():
             errors.append(name + ': tracked file missing')
             continue
         if path.name in {'.env', '.env.local', '.env.production', '.env.development'}:
-            errors.append(name + ': runtime environment file must not be tracked')
+            allowed = config.get('public_environment_files', {}).get(name)
+            valid_public = bool(allowed)
+            if allowed:
+                for line in path.read_text().splitlines():
+                    line = line.strip()
+                    if not line or line.startswith('#'):
+                        continue
+                    key, separator, value = line.partition('=')
+                    value = value.strip().strip(chr(34)).strip(chr(39))
+                    if not separator or key not in allowed:
+                        valid_public = False
+                    elif key == 'VITE_SUPABASE_PUBLISHABLE_KEY' and not value.startswith('sb_publishable_'):
+                        valid_public = False
+                    elif key == 'VITE_SUPABASE_URL' and not re.fullmatch(r'https://[a-z0-9-]+\\.supabase\\.co/?', value):
+                        valid_public = False
+            if not valid_public:
+                errors.append(name + ': unapproved runtime configuration or non-public credential')
         try:
             source = path.read_text(encoding='utf-8')
         except UnicodeDecodeError:

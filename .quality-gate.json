@@ -11,5 +11,11 @@
     "tsconfig.app.json",
     "tsconfig.node.json",
     "deno.json"
-  ]
+  ],
+  "public_environment_files": {
+    ".env.production": [
+      "VITE_SUPABASE_URL",
+      "VITE_SUPABASE_PUBLISHABLE_KEY"
+    ]
+  }
 }
