@@ -45,7 +45,7 @@ def main():
                         valid_public = False
                     elif key == 'VITE_SUPABASE_PUBLISHABLE_KEY' and not value.startswith('sb_publishable_'):
                         valid_public = False
-                    elif key == 'VITE_SUPABASE_URL' and not re.fullmatch(r'https://[a-z0-9-]+\\.supabase\\.co/?', value):
+                    elif key == 'VITE_SUPABASE_URL' and not re.fullmatch(r'https://[a-z0-9-]+\.supabase\.co/?', value):
                         valid_public = False
             if not valid_public:
                 errors.append(name + ': unapproved runtime configuration or non-public credential')
