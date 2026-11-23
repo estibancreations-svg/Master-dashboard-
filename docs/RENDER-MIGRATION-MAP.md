@@ -20,3 +20,9 @@ The [enterprise decision and forensic evidence](https://github.com/estibancreati
 ## Cutover criteria
 
 For a confirmed hosted application, record the Render service, source SHA, build and health checks, data binding, access tests, verified target domain and rollback procedure. Promote after applicable GitHub Quality Gates and runtime checks pass on the exact candidate. Documentation-only repositories carry the mapping in GitHub.
+
+## Migration verification · 2026-11-22T21:35:36-06:00
+
+**Runtime ownership pending.** The README identifies an alternate VisionWeaver lineage. Confirm its ownership and supported Node production entry point before provisioning another service.
+
+[Enterprise verification record](https://github.com/estibancreations-svg/Master-System-Buildout/blob/docs/render-migration-2026-11-22/docs/forensics/2026-11-22-render-migration.md)
